@@ -1,4 +1,4 @@
-package com.baeldung.web;
+package com.springserverless.web;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package com.baeldung.web.exception;
+package com.springserverless.web.exception;
 
 public class BookIdMismatchException extends RuntimeException {
 

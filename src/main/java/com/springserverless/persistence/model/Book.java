@@ -1,4 +1,4 @@
-package com.baeldung.persistence.model;
+package com.springserverless.persistence.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

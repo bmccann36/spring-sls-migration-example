@@ -1,4 +1,4 @@
-package com.baeldung.web;
+package com.springserverless.web;
 
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.baeldung.web.exception.BookIdMismatchException;
-import com.baeldung.web.exception.BookNotFoundException;
+import com.springserverless.web.exception.BookIdMismatchException;
+import com.springserverless.web.exception.BookNotFoundException;
 
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {

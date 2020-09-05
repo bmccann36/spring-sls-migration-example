@@ -1,4 +1,4 @@
-package com.baeldung.config;
+package com.springserverless.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

@@ -1,0 +1,31 @@
+
+service: spring-sls-bookstore
+
+provider:
+  name: aws
+  runtime: java11
+  region: us-east-1
+  timeout: 30 #! pretty high if you ask me!!
+
+  tracing:
+    apiGateway: true
+    lambda: true
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+package:
+  artifact: build/distributions/spring-sls-bookstore-0.0.1.zip
+
+functions:
+  bookStoreApp:
+    handler: com.springserverless.StreamLambdaHandler
+    events:
+      - http:
+          path: /
+          method: ANY
+          cors: true
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true

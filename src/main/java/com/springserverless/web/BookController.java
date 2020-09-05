@@ -1,8 +1,7 @@
-package com.baeldung.web;
+package com.springserverless.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.baeldung.persistence.model.Book;
-import com.baeldung.persistence.repo.BookRepository;
-import com.baeldung.web.exception.BookIdMismatchException;
-import com.baeldung.web.exception.BookNotFoundException;
+import com.springserverless.persistence.model.Book;
+import com.springserverless.persistence.repo.BookRepository;
+import com.springserverless.web.exception.BookIdMismatchException;
+import com.springserverless.web.exception.BookNotFoundException;
 
 import java.util.List;
 

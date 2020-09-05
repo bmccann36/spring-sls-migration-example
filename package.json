@@ -1,0 +1,24 @@
+{
+  "name": "spring-boot-bookstore-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmccann36/spring-sls-migration-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bmccann36/spring-sls-migration-example/issues"
+  },
+  "homepage": "https://github.com/bmccann36/spring-sls-migration-example#readme",
+  "devDependencies": {
+    "serverless-dotenv-plugin": "^3.0.0",
+    "serverless-offline": "^6.7.0"
+  }
+}
