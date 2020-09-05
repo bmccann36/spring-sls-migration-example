@@ -175,7 +175,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/spring-sls-bookstore/dev/1599335457119-2020-09-05T19:50:57.119Z/spring-sls-bookstore-0.0.1.zip"
+                "S3Key": "serverless/spring-sls-bookstore/dev/1599345368496-2020-09-05T22:36:08.496Z/spring-sls-bookstore-0.0.1.zip"
               },
               "FunctionName": "spring-sls-bookstore-dev-bookStoreApp",
               "Handler": "com.springserverless.StreamLambdaHandler",
@@ -199,14 +199,14 @@
               "BookStoreAppLogGroup"
             ]
           },
-          "BookStoreAppLambdaVersionETCKyzDQg9NjXVkyBKjWhmuD5anoqJhxAOkEAt1JcE": {
+          "BookStoreAppLambdaVersionVnPuh1QrE90ajMQR93hjamhN2t8Cd661qQMEM1Yjs5k": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "BookStoreAppLambdaFunction"
               },
-              "CodeSha256": "SbOcQZjwkPoZ/fwsYpGuUrD4pDdHricRI0OwLcP+LR0="
+              "CodeSha256": "hrr6N0PycX9uL0yZ9oMC8hlsqefuhg1YJ02rciIgN04="
             }
           },
           "ApiGatewayRestApi": {
@@ -418,7 +418,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1599335456319": {
+          "ApiGatewayDeployment1599345366520": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -480,7 +480,7 @@
           "BookStoreAppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "BookStoreAppLambdaVersionETCKyzDQg9NjXVkyBKjWhmuD5anoqJhxAOkEAt1JcE"
+              "Ref": "BookStoreAppLambdaVersionVnPuh1QrE90ajMQR93hjamhN2t8Cd661qQMEM1Yjs5k"
             }
           },
           "ServiceEndpoint": {
@@ -645,7 +645,7 @@
         "timeout": 30,
         "runtime": "java11",
         "vpc": {},
-        "versionLogicalId": "BookStoreAppLambdaVersionETCKyzDQg9NjXVkyBKjWhmuD5anoqJhxAOkEAt1JcE"
+        "versionLogicalId": "BookStoreAppLambdaVersionVnPuh1QrE90ajMQR93hjamhN2t8Cd661qQMEM1Yjs5k"
       }
     },
     "configValidationMode": "warn",
@@ -663,7 +663,7 @@
       },
       "package": {
         "artifact": "build/distributions/spring-sls-bookstore-0.0.1.zip",
-        "artifactDirectoryName": "serverless/spring-sls-bookstore/dev/1599335457119-2020-09-05T19:50:57.119Z"
+        "artifactDirectoryName": "serverless/spring-sls-bookstore/dev/1599345368496-2020-09-05T22:36:08.496Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -676,7 +676,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/spring-sls-bookstore/dev/1599335457119-2020-09-05T19:50:57.119Z",
+    "artifactDirectoryName": "serverless/spring-sls-bookstore/dev/1599345368496-2020-09-05T22:36:08.496Z",
     "artifact": "spring-sls-bookstore-0.0.1.zip"
   }
 }
