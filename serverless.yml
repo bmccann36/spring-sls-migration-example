@@ -3,7 +3,7 @@ service: spring-sls-bookstore
 
 provider:
   name: aws
-  runtime: java11
+  runtime: java8
   region: us-east-1
   timeout: 30 #! pretty high if you ask me!!
 
@@ -12,7 +12,6 @@ provider:
     lambda: true
 
 plugins:
-  - serverless-offline
   - serverless-dotenv-plugin
 package:
   artifact: build/distributions/spring-sls-bookstore-0.0.1.zip
@@ -29,3 +28,6 @@ functions:
           path: /{proxy+}
           method: ANY
           cors: true
+
+  exampleHandler:
+    handler: com.springserverless.ExampleHandler

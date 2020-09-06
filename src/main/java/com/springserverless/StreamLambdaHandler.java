@@ -1,4 +1,5 @@
 package com.springserverless;
+
 import com.amazonaws.serverless.exceptions.ContainerInitializationException;
 import com.amazonaws.serverless.proxy.internal.servlet.AwsLambdaServletContainerHandler;
 import com.amazonaws.serverless.proxy.spring.SpringBootProxyHandlerBuilder;
@@ -10,8 +11,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class StreamLambdaHandler implements RequestStreamHandler {
-    private AwsLambdaServletContainerHandler handler;
 
+
+    private AwsLambdaServletContainerHandler handler;
     public StreamLambdaHandler() throws ContainerInitializationException {
         handler = new SpringBootProxyHandlerBuilder()
                 .springBootApplication(Application.class)
@@ -21,9 +23,12 @@ public class StreamLambdaHandler implements RequestStreamHandler {
 
     }
 
+
     @Override
     public void handleRequest(InputStream inputStream, OutputStream outputStream, Context context)
             throws IOException {
+
         handler.proxyStream(inputStream, outputStream, context);
     }
+
 }

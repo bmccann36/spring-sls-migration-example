@@ -8,7 +8,7 @@
       "stage": "dev",
       "variableSyntax": "\\${([^{}]+?)}",
       "name": "aws",
-      "runtime": "java11",
+      "runtime": "java8",
       "region": "us-east-1",
       "timeout": 30,
       "tracing": {
@@ -16,9 +16,7 @@
         "lambda": true
       },
       "versionFunctions": true,
-      "environment": {
-        "DEV_NAME": "brian"
-      },
+      "environment": {},
       "compiledCloudFormationTemplate": {
         "AWSTemplateFormatVersion": "2010-09-09",
         "Description": "The AWS CloudFormation template for this Serverless application",
@@ -81,6 +79,12 @@
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
               "LogGroupName": "/aws/lambda/spring-sls-bookstore-dev-bookStoreApp"
+            }
+          },
+          "ExampleHandlerLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/spring-sls-bookstore-dev-exampleHandler"
             }
           },
           "IamRoleLambdaExecution": {
@@ -177,7 +181,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/spring-sls-bookstore/dev/1599330956598-2020-09-05T18:35:56.598Z/spring-sls-bookstore-0.0.1.zip"
+                "S3Key": "serverless/spring-sls-bookstore/dev/1599403975147-2020-09-06T14:52:55.147Z/spring-sls-bookstore-0.0.1.zip"
               },
               "FunctionName": "spring-sls-bookstore-dev-bookStoreApp",
               "Handler": "com.springserverless.StreamLambdaHandler",
@@ -188,29 +192,68 @@
                   "Arn"
                 ]
               },
-              "Runtime": "java11",
+              "Runtime": "java8",
               "Timeout": 30,
               "TracingConfig": {
                 "Mode": "Active"
               },
               "Environment": {
-                "Variables": {
-                  "DEV_NAME": "brian"
-                }
+                "Variables": {}
               }
             },
             "DependsOn": [
               "BookStoreAppLogGroup"
             ]
           },
-          "BookStoreAppLambdaVersioncUgtbfH49OdA7jTiJB8doJjhDPaGqodJ0vygPulL7M": {
+          "BookStoreAppLambdaVersion2hYabpiWcfMU6Jo542869pyAjinS07sdnv6knXuSCA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "BookStoreAppLambdaFunction"
               },
-              "CodeSha256": "m6KIgy2WQ6GL2tC7tcc6S3ntO9FwbD8jEcrb8w2UPZk="
+              "CodeSha256": "8IgwSrVUgnt2/7Wb5nIrzvLThy3CGWNCO7rX6UDR31E="
+            }
+          },
+          "ExampleHandlerLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/spring-sls-bookstore/dev/1599403975147-2020-09-06T14:52:55.147Z/spring-sls-bookstore-0.0.1.zip"
+              },
+              "FunctionName": "spring-sls-bookstore-dev-exampleHandler",
+              "Handler": "com.springserverless.ExampleHandler",
+              "MemorySize": 1024,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              },
+              "Runtime": "java8",
+              "Timeout": 30,
+              "TracingConfig": {
+                "Mode": "Active"
+              },
+              "Environment": {
+                "Variables": {}
+              }
+            },
+            "DependsOn": [
+              "ExampleHandlerLogGroup"
+            ]
+          },
+          "ExampleHandlerLambdaVersionKm2zT8LWQyWqKhlqKqtPKlp4dDSMCHoPA4W9rIIkE": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "ExampleHandlerLambdaFunction"
+              },
+              "CodeSha256": "8IgwSrVUgnt2/7Wb5nIrzvLThy3CGWNCO7rX6UDR31E="
             }
           },
           "ApiGatewayRestApi": {
@@ -422,7 +465,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1599330954524": {
+          "ApiGatewayDeployment1599403974468": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -484,7 +527,13 @@
           "BookStoreAppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "BookStoreAppLambdaVersioncUgtbfH49OdA7jTiJB8doJjhDPaGqodJ0vygPulL7M"
+              "Ref": "BookStoreAppLambdaVersion2hYabpiWcfMU6Jo542869pyAjinS07sdnv6knXuSCA"
+            }
+          },
+          "ExampleHandlerLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "ExampleHandlerLambdaVersionKm2zT8LWQyWqKhlqKqtPKlp4dDSMCHoPA4W9rIIkE"
             }
           },
           "ServiceEndpoint": {
@@ -582,7 +631,6 @@
       "vpc": {}
     },
     "plugins": [
-      "serverless-offline",
       "serverless-dotenv-plugin"
     ],
     "pluginsData": {},
@@ -647,9 +695,20 @@
         "package": {},
         "memory": 1024,
         "timeout": 30,
-        "runtime": "java11",
+        "runtime": "java8",
         "vpc": {},
-        "versionLogicalId": "BookStoreAppLambdaVersioncUgtbfH49OdA7jTiJB8doJjhDPaGqodJ0vygPulL7M"
+        "versionLogicalId": "BookStoreAppLambdaVersion2hYabpiWcfMU6Jo542869pyAjinS07sdnv6knXuSCA"
+      },
+      "exampleHandler": {
+        "handler": "com.springserverless.ExampleHandler",
+        "events": [],
+        "name": "spring-sls-bookstore-dev-exampleHandler",
+        "package": {},
+        "memory": 1024,
+        "timeout": 30,
+        "runtime": "java8",
+        "vpc": {},
+        "versionLogicalId": "ExampleHandlerLambdaVersionKm2zT8LWQyWqKhlqKqtPKlp4dDSMCHoPA4W9rIIkE"
       }
     },
     "configValidationMode": "warn",
@@ -667,7 +726,7 @@
       },
       "package": {
         "artifact": "build/distributions/spring-sls-bookstore-0.0.1.zip",
-        "artifactDirectoryName": "serverless/spring-sls-bookstore/dev/1599330956598-2020-09-05T18:35:56.598Z"
+        "artifactDirectoryName": "serverless/spring-sls-bookstore/dev/1599403975147-2020-09-06T14:52:55.147Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -680,7 +739,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/spring-sls-bookstore/dev/1599330956598-2020-09-05T18:35:56.598Z",
+    "artifactDirectoryName": "serverless/spring-sls-bookstore/dev/1599403975147-2020-09-06T14:52:55.147Z",
     "artifact": "spring-sls-bookstore-0.0.1.zip"
   }
 }

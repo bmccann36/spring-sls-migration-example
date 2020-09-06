@@ -1,0 +1,109 @@
+{
+  "path": "/api/books/title/The%20Three-Body%20Problem",
+  "headers": {
+    "Accept": "*/*",
+    "Accept-Encoding": "gzip, deflate, br",
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-Country": "US",
+    "Content-Type": "application/json",
+    "day": "Thursday",
+    "Host": "3kn42auic5.execute-api.us-east-1.amazonaws.com",
+    "Postman-Token": "05812620-f535-4653-a8dd-4219ca263311",
+    "User-Agent": "PostmanRuntime/7.26.3",
+    "Via": "1.1 b2cb5873eebaf86981435722128eab73.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "Z0A0VdTsgvTZaLCEkn4YDky1RsAd67qecCS-a4_hnrf5PkHGjQplAw\u003d\u003d",
+    "X-Amzn-Trace-Id": "Root\u003d1-5f54eb3b-a3d603e89c9680b88a5beaa8",
+    "X-Forwarded-For": "68.129.230.89, 70.132.52.160",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "pathParameters": {
+    "proxy": "api/books/title/The%20Three-Body%20Problem"
+  },
+  "isBase64Encoded": false,
+  "multiValueHeaders": {
+    "Accept": [
+      "*/*"
+    ],
+    "Accept-Encoding": [
+      "gzip, deflate, br"
+    ],
+    "CloudFront-Forwarded-Proto": [
+      "https"
+    ],
+    "CloudFront-Is-Desktop-Viewer": [
+      "true"
+    ],
+    "CloudFront-Is-Mobile-Viewer": [
+      "false"
+    ],
+    "CloudFront-Is-SmartTV-Viewer": [
+      "false"
+    ],
+    "CloudFront-Is-Tablet-Viewer": [
+      "false"
+    ],
+    "CloudFront-Viewer-Country": [
+      "US"
+    ],
+    "Content-Type": [
+      "application/json"
+    ],
+    "day": [
+      "Thursday"
+    ],
+    "Host": [
+      "3kn42auic5.execute-api.us-east-1.amazonaws.com"
+    ],
+    "Postman-Token": [
+      "05812620-f535-4653-a8dd-4219ca263311"
+    ],
+    "User-Agent": [
+      "PostmanRuntime/7.26.3"
+    ],
+    "Via": [
+      "1.1 b2cb5873eebaf86981435722128eab73.cloudfront.net (CloudFront)"
+    ],
+    "X-Amz-Cf-Id": [
+      "Z0A0VdTsgvTZaLCEkn4YDky1RsAd67qecCS-a4_hnrf5PkHGjQplAw\u003d\u003d"
+    ],
+    "X-Amzn-Trace-Id": [
+      "Root\u003d1-5f54eb3b-a3d603e89c9680b88a5beaa8"
+    ],
+    "X-Forwarded-For": [
+      "68.129.230.89, 70.132.52.160"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ]
+  },
+  "requestContext": {
+    "resourceId": "5gox2t",
+    "resourcePath": "/{proxy+}",
+    "httpMethod": "GET",
+    "extendedRequestId": "ScmxYHAcIAMF1AQ\u003d",
+    "requestTime": "06/Sep/2020:13:59:23 +0000",
+    "path": "/dev/api/books/title/The%20Three-Body%20Problem",
+    "accountId": "466357709346",
+    "protocol": "HTTP/1.1",
+    "stage": "dev",
+    "domainPrefix": "3kn42auic5",
+    "requestTimeEpoch": 1.599400763975E12,
+    "requestId": "6c6d73e0-bae9-4d72-92c5-92f5564fda88",
+    "identity": {
+      "sourceIp": "68.129.230.89",
+      "userAgent": "PostmanRuntime/7.26.3"
+    },
+    "domainName": "3kn42auic5.execute-api.us-east-1.amazonaws.com",
+    "apiId": "3kn42auic5"
+  },
+  "resource": "/{proxy+}",
+  "httpMethod": "GET"
+}
