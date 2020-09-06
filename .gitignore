@@ -26,3 +26,4 @@ gradle-app.setting
 
 .env
 node_modules/**
+/.serverless/invokeLocal/
