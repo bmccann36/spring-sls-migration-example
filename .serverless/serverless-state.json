@@ -81,10 +81,22 @@
               "LogGroupName": "/aws/lambda/spring-sls-bookstore-dev-bookStoreApp"
             }
           },
-          "ExampleHandlerLogGroup": {
+          "DemoStreamHandlerLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/spring-sls-bookstore-dev-exampleHandler"
+              "LogGroupName": "/aws/lambda/spring-sls-bookstore-dev-demoStreamHandler"
+            }
+          },
+          "DemoHandlerLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/spring-sls-bookstore-dev-demoHandler"
+            }
+          },
+          "DemoHandlerApiGLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/spring-sls-bookstore-dev-demoHandlerApiG"
             }
           },
           "IamRoleLambdaExecution": {
@@ -181,7 +193,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/spring-sls-bookstore/dev/1599403975147-2020-09-06T14:52:55.147Z/spring-sls-bookstore-0.0.1.zip"
+                "S3Key": "serverless/spring-sls-bookstore/dev/1599479666138-2020-09-07T11:54:26.138Z/spring-sls-bookstore-0.0.1.zip"
               },
               "FunctionName": "spring-sls-bookstore-dev-bookStoreApp",
               "Handler": "com.springserverless.StreamLambdaHandler",
@@ -205,26 +217,67 @@
               "BookStoreAppLogGroup"
             ]
           },
-          "BookStoreAppLambdaVersion2hYabpiWcfMU6Jo542869pyAjinS07sdnv6knXuSCA": {
+          "BookStoreAppLambdaVersionE2bKuL0B5SiiqEkmenWzzoI1EVExG8lLCySZFDs80": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "BookStoreAppLambdaFunction"
               },
-              "CodeSha256": "8IgwSrVUgnt2/7Wb5nIrzvLThy3CGWNCO7rX6UDR31E="
+              "CodeSha256": "Q0XLkRKCweilJiaXYJaJrMJujp5HPfbNJ65Sc8dNvtg="
             }
           },
-          "ExampleHandlerLambdaFunction": {
+          "DemoStreamHandlerLambdaFunction": {
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/spring-sls-bookstore/dev/1599403975147-2020-09-06T14:52:55.147Z/spring-sls-bookstore-0.0.1.zip"
+                "S3Key": "serverless/spring-sls-bookstore/dev/1599479666138-2020-09-07T11:54:26.138Z/spring-sls-bookstore-0.0.1.zip"
               },
-              "FunctionName": "spring-sls-bookstore-dev-exampleHandler",
+              "FunctionName": "spring-sls-bookstore-dev-demoStreamHandler",
+              "Handler": "com.springserverless.ExampleHandlerStream",
+              "MemorySize": 1024,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              },
+              "Runtime": "java8",
+              "Timeout": 30,
+              "TracingConfig": {
+                "Mode": "Active"
+              },
+              "Environment": {
+                "Variables": {}
+              }
+            },
+            "DependsOn": [
+              "DemoStreamHandlerLogGroup"
+            ]
+          },
+          "DemoStreamHandlerLambdaVersionAuXww6BorLto84ppnFu4vmj5XX4auzelM28Nf5A": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "DemoStreamHandlerLambdaFunction"
+              },
+              "CodeSha256": "Q0XLkRKCweilJiaXYJaJrMJujp5HPfbNJ65Sc8dNvtg="
+            }
+          },
+          "DemoHandlerLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/spring-sls-bookstore/dev/1599479666138-2020-09-07T11:54:26.138Z/spring-sls-bookstore-0.0.1.zip"
+              },
+              "FunctionName": "spring-sls-bookstore-dev-demoHandler",
               "Handler": "com.springserverless.ExampleHandler",
               "MemorySize": 1024,
               "Role": {
@@ -243,17 +296,58 @@
               }
             },
             "DependsOn": [
-              "ExampleHandlerLogGroup"
+              "DemoHandlerLogGroup"
             ]
           },
-          "ExampleHandlerLambdaVersionKm2zT8LWQyWqKhlqKqtPKlp4dDSMCHoPA4W9rIIkE": {
+          "DemoHandlerLambdaVersion1sJsGOhnCMKuKbn1Hyt19dbcSkesRyMNZjG2FIO6Tpw": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
-                "Ref": "ExampleHandlerLambdaFunction"
+                "Ref": "DemoHandlerLambdaFunction"
               },
-              "CodeSha256": "8IgwSrVUgnt2/7Wb5nIrzvLThy3CGWNCO7rX6UDR31E="
+              "CodeSha256": "Q0XLkRKCweilJiaXYJaJrMJujp5HPfbNJ65Sc8dNvtg="
+            }
+          },
+          "DemoHandlerApiGLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/spring-sls-bookstore/dev/1599479666138-2020-09-07T11:54:26.138Z/spring-sls-bookstore-0.0.1.zip"
+              },
+              "FunctionName": "spring-sls-bookstore-dev-demoHandlerApiG",
+              "Handler": "com.springserverless.ExampleHandlerApiG",
+              "MemorySize": 1024,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              },
+              "Runtime": "java8",
+              "Timeout": 30,
+              "TracingConfig": {
+                "Mode": "Active"
+              },
+              "Environment": {
+                "Variables": {}
+              }
+            },
+            "DependsOn": [
+              "DemoHandlerApiGLogGroup"
+            ]
+          },
+          "DemoHandlerApiGLambdaVersionMk9TqBEYTlZFY7aHhbBLXywo6HNmYXro3mxjGRMfc8": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "DemoHandlerApiGLambdaFunction"
+              },
+              "CodeSha256": "Q0XLkRKCweilJiaXYJaJrMJujp5HPfbNJ65Sc8dNvtg="
             }
           },
           "ApiGatewayRestApi": {
@@ -278,6 +372,33 @@
                 ]
               },
               "PathPart": "{proxy+}",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceDemo": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "demo",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceDemoHandler": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Ref": "ApiGatewayResourceDemo"
+              },
+              "PathPart": "handler",
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
@@ -465,7 +586,50 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1599403974468": {
+          "ApiGatewayMethodDemoHandlerPost": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "POST",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceDemoHandler"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "DemoHandlerApiGLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            }
+          },
+          "ApiGatewayDeployment1599479664343": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -477,7 +641,8 @@
               "ApiGatewayMethodOptions",
               "ApiGatewayMethodProxyVarOptions",
               "ApiGatewayMethodAny",
-              "ApiGatewayMethodProxyVarAny"
+              "ApiGatewayMethodProxyVarAny",
+              "ApiGatewayMethodDemoHandlerPost"
             ]
           },
           "BookStoreAppLambdaPermissionApiGateway": {
@@ -486,6 +651,43 @@
               "FunctionName": {
                 "Fn::GetAtt": [
                   "BookStoreAppLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "DemoHandlerApiGLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "DemoHandlerApiGLambdaFunction",
                   "Arn"
                 ]
               },
@@ -527,13 +729,25 @@
           "BookStoreAppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "BookStoreAppLambdaVersion2hYabpiWcfMU6Jo542869pyAjinS07sdnv6knXuSCA"
+              "Ref": "BookStoreAppLambdaVersionE2bKuL0B5SiiqEkmenWzzoI1EVExG8lLCySZFDs80"
             }
           },
-          "ExampleHandlerLambdaFunctionQualifiedArn": {
+          "DemoStreamHandlerLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ExampleHandlerLambdaVersionKm2zT8LWQyWqKhlqKqtPKlp4dDSMCHoPA4W9rIIkE"
+              "Ref": "DemoStreamHandlerLambdaVersionAuXww6BorLto84ppnFu4vmj5XX4auzelM28Nf5A"
+            }
+          },
+          "DemoHandlerLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "DemoHandlerLambdaVersion1sJsGOhnCMKuKbn1Hyt19dbcSkesRyMNZjG2FIO6Tpw"
+            }
+          },
+          "DemoHandlerApiGLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "DemoHandlerApiGLambdaVersionMk9TqBEYTlZFY7aHhbBLXywo6HNmYXro3mxjGRMfc8"
             }
           },
           "ServiceEndpoint": {
@@ -697,18 +911,48 @@
         "timeout": 30,
         "runtime": "java8",
         "vpc": {},
-        "versionLogicalId": "BookStoreAppLambdaVersion2hYabpiWcfMU6Jo542869pyAjinS07sdnv6knXuSCA"
+        "versionLogicalId": "BookStoreAppLambdaVersionE2bKuL0B5SiiqEkmenWzzoI1EVExG8lLCySZFDs80"
       },
-      "exampleHandler": {
-        "handler": "com.springserverless.ExampleHandler",
+      "demoStreamHandler": {
+        "handler": "com.springserverless.ExampleHandlerStream",
         "events": [],
-        "name": "spring-sls-bookstore-dev-exampleHandler",
+        "name": "spring-sls-bookstore-dev-demoStreamHandler",
         "package": {},
         "memory": 1024,
         "timeout": 30,
         "runtime": "java8",
         "vpc": {},
-        "versionLogicalId": "ExampleHandlerLambdaVersionKm2zT8LWQyWqKhlqKqtPKlp4dDSMCHoPA4W9rIIkE"
+        "versionLogicalId": "DemoStreamHandlerLambdaVersionAuXww6BorLto84ppnFu4vmj5XX4auzelM28Nf5A"
+      },
+      "demoHandler": {
+        "handler": "com.springserverless.ExampleHandler",
+        "events": [],
+        "name": "spring-sls-bookstore-dev-demoHandler",
+        "package": {},
+        "memory": 1024,
+        "timeout": 30,
+        "runtime": "java8",
+        "vpc": {},
+        "versionLogicalId": "DemoHandlerLambdaVersion1sJsGOhnCMKuKbn1Hyt19dbcSkesRyMNZjG2FIO6Tpw"
+      },
+      "demoHandlerApiG": {
+        "handler": "com.springserverless.ExampleHandlerApiG",
+        "events": [
+          {
+            "http": {
+              "path": "demo/handler",
+              "method": "post",
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "spring-sls-bookstore-dev-demoHandlerApiG",
+        "package": {},
+        "memory": 1024,
+        "timeout": 30,
+        "runtime": "java8",
+        "vpc": {},
+        "versionLogicalId": "DemoHandlerApiGLambdaVersionMk9TqBEYTlZFY7aHhbBLXywo6HNmYXro3mxjGRMfc8"
       }
     },
     "configValidationMode": "warn",
@@ -726,7 +970,7 @@
       },
       "package": {
         "artifact": "build/distributions/spring-sls-bookstore-0.0.1.zip",
-        "artifactDirectoryName": "serverless/spring-sls-bookstore/dev/1599403975147-2020-09-06T14:52:55.147Z"
+        "artifactDirectoryName": "serverless/spring-sls-bookstore/dev/1599479666138-2020-09-07T11:54:26.138Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -739,7 +983,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/spring-sls-bookstore/dev/1599403975147-2020-09-06T14:52:55.147Z",
+    "artifactDirectoryName": "serverless/spring-sls-bookstore/dev/1599479666138-2020-09-07T11:54:26.138Z",
     "artifact": "spring-sls-bookstore-0.0.1.zip"
   }
 }

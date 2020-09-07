@@ -29,5 +29,15 @@ functions:
           method: ANY
           cors: true
 
-  exampleHandler:
+  demoStreamHandler:
+    handler: com.springserverless.ExampleHandlerStream
+
+  demoHandler:
     handler: com.springserverless.ExampleHandler
+
+  demoHandlerApiG:
+    handler: com.springserverless.ExampleHandlerApiG
+    events:
+      - http:
+          path: demo/handler
+          method: post
